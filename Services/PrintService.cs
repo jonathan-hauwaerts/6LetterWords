@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using _6LetterWords.Extensions;
+using Serilog;
+
 
 namespace _6LetterWords.Services
 {
@@ -8,7 +8,14 @@ namespace _6LetterWords.Services
     {
         public static void print(string firstWord, string secondWord, string result, int line)
         {
-            Console.WriteLine($"{line.ToString()}: {firstWord} + {secondWord} = {result}");
+			try
+			{
+                ConsoleExtension.WriteLine($"{line.ToString()}: {firstWord} + {secondWord} = {result}");
+            }
+			catch (Exception ex)
+			{
+                Log.Error(ex.Message, ex);
+			}   
         }
     }
 }

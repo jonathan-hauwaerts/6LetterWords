@@ -41,7 +41,7 @@ namespace _6LetterWords.Services
 
                 PrintWord(part, validCombinations[x], word);
                 _usedWords.Add(word);
-                recursion(word);
+                Recursion(word);
             }
         }
 
@@ -55,7 +55,7 @@ namespace _6LetterWords.Services
             }
         }
 
-        private void recursion(string word)
+        private void Recursion(string word)
         {
             if (_fileStrings.Any(x => x.StartsWith(word)) && word.Length < _maxLetters && !_alreadyPrinted.Contains(word) && !_usedWords.Contains(word))
             {
